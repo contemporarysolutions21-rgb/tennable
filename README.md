@@ -79,6 +79,16 @@ The agent writes an Excel workbook (default `nvd_vulnerability_findings.xlsx`) w
 | `Errors` | Assets whose NVD lookups failed, with the error |
 | `Run Summary` | Run timestamp, asset/finding/error counts, and whether an API key was used |
 
+## Outbound data flows
+
+CVE Sherlock makes HTTPS GET requests to one external service only:
+
+| Destination | What is sent | Why |
+|-------------|--------------|-----|
+| `services.nvd.nist.gov` (NVD CPE 2.0 and CVE 2.0 APIs) | Normalized vendor and product names from the inventory (e.g. `apache:log4j`), candidate CPE names, and your NVD API key in the `apiKey` header if one is set | Resolve CPEs and retrieve applicable CVEs |
+
+No other asset fields (hostnames, IP addresses, owners, data classification, etc.) leave your machine. All results are written to a local Excel file.
+
 ## Known limitations
 
 - **Findings are probable, not confirmed.** Matches are based on inventory data and NVD applicability; validate against the actual installed software and patch level.
