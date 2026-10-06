@@ -4,3 +4,4 @@ __pycache__/
 .env
 *_findings.xlsx
 ~$*.xlsx
+*.zip
