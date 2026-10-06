@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+*_findings.xlsx
+~$*.xlsx
+*.zip
